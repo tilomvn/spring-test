@@ -13,9 +13,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
 
+import com.spring.test.junit.config.TestOrder;
+
 @ExtendWith(SpringExtension.class)
 @TestInstance(Lifecycle.PER_CLASS)
 @ContextConfiguration(classes = AdditionalBean.class)
+@TestOrder(2)
 class ServiceWithRestTemplateTests {
 
 	@Mock

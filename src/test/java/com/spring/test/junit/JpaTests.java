@@ -11,8 +11,11 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import com.spring.test.junit.config.TestOrder;
+
 @DataJpaTest
 @TestInstance(Lifecycle.PER_CLASS)
+@TestOrder(3)
 class JpaTests {
 
 	@Autowired

@@ -11,8 +11,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spring.test.junit.config.TestOrder;
 
 @WebMvcTest(controllers = TestController.class)
+@TestOrder(0)
 class TestControllerTests {
 
 	@Autowired

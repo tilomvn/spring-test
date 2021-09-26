@@ -11,7 +11,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.spring.test.junit.config.TestOrder;
+
 @ExtendWith(SpringExtension.class)
+@TestOrder(1)
 class ServiceTests {
 
 	@Mock
