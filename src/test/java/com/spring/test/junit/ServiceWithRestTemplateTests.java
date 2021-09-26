@@ -1,5 +1,7 @@
 package com.spring.test.junit;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -37,6 +39,6 @@ class ServiceWithRestTemplateTests {
 	
 	@Test
 	void test() {
-		serviceWithRestTemplate.test();
+		assertEquals(null, serviceWithRestTemplate.test());
 	}
 }

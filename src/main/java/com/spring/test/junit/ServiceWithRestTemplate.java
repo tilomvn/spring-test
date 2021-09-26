@@ -21,12 +21,20 @@ class ServiceWithRestTemplate {
 		this.restTemplate = restTemplateBuilder.build();
 	}
 	
-	void test() {
+	String test() {
 		ResponseEntity<ResponseModel> response = restTemplate.getForEntity("http://example.com/", ResponseModel.class);
-		//log.info("" + response.getStatusCode());
+		if (response != null) {
+			return response.getBody().name;	
+		}
+		return null;
 	}
 	
-	class ResponseModel {
+	static class ResponseModel {
+		String name;
 		
+		ResponseModel() {}
+		ResponseModel(String name) { this.name = name; }
+		
+		public String getName() { return name; }
 	}
 }
