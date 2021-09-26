@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.test.junit.config.TestOrder;
 
 @WebMvcTest(controllers = TestController.class)
-@TestOrder(0)
+@TestOrder(1)
 class TestControllerTests {
 
 	@Autowired

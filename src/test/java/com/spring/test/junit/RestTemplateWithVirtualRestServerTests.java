@@ -15,7 +15,7 @@ import com.spring.test.junit.config.TestOrder;
 
 @RestClientTest(ServiceWithRestTemplate.class)
 @TestOrder(4)
-class RestTestWithVirtualRestServer {
+class RestTemplateWithVirtualRestServerTests {
 
 	@Autowired
 	MockRestServiceServer virtualServer;

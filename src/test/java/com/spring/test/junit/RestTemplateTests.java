@@ -21,7 +21,7 @@ import com.spring.test.junit.config.TestOrder;
 @TestInstance(Lifecycle.PER_CLASS)
 @ContextConfiguration(classes = AdditionalBean.class)
 @TestOrder(2)
-class ServiceWithRestTemplateTests {
+class RestTemplateTests {
 
 	@Mock
     RestTemplateBuilder restTemplateBuilder;

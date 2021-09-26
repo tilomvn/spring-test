@@ -15,7 +15,7 @@ import com.spring.test.junit.config.TestOrder;
 
 @DataJpaTest
 @TestInstance(Lifecycle.PER_CLASS)
-@TestOrder(3)
+@TestOrder(5)
 class JpaTests {
 
 	@Autowired

@@ -14,7 +14,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.spring.test.junit.config.TestOrder;
 
 @ExtendWith(SpringExtension.class)
-@TestOrder(1)
+@TestOrder(3)
 class ServiceTests {
 
 	@Mock
