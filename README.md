@@ -4,4 +4,5 @@
    * Controller: Done
    * DataJpa: Done
    * Remote API: Done
+   * Integration: Done
 * Support ordering test class by using junit-jupiter version 5.8.0-M1.
