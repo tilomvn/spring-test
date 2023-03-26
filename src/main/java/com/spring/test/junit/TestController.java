@@ -9,9 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 class TestController {
 
+	ServiceWithRestTemplate serviceWithRestTemplate;
+
+	TestController(ServiceWithRestTemplate serviceWithRestTemplate) {
+		this.serviceWithRestTemplate = serviceWithRestTemplate;
+	}
+
 	@GetMapping("/test")
 	ResponseEntity<?> test() {
 		return ResponseEntity.ok().body(new ResponseModel("body"));
+	}
+
+	@GetMapping("/test1")
+	ResponseEntity<?> test1() {
+		return ResponseEntity.ok().body(new ResponseModel(serviceWithRestTemplate.test()));
 	}
 	
 	static class ResponseModel {

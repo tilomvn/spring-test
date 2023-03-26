@@ -11,6 +11,7 @@ import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -32,17 +33,26 @@ class SpringTestApplicationTests {
 
     @Test
     void test() throws Exception {
-        //TODO: determine remote server
-        String url =  "http://example.com/";
-        virtualServer.expect(requestTo(url)).andRespond(withSuccess(
-                objectMapper.writeValueAsString(Object),
-                MediaType.APPLICATION_JSON));
-
-        //TODO: perform request
         MvcResult mvcResult = mockMvc.perform(get("/api/test"))
                 .andExpect(status().isOk()).andReturn();
 
-        //TODO: check response
         String response = mvcResult.getResponse().getContentAsString();
+
+        assertEquals("{\"body\":\"body\"}", response);
+    }
+
+    @Test
+    void test1() throws Exception {
+        String url =  "http://example.com/";
+        virtualServer.expect(requestTo(url)).andRespond(withSuccess(
+                objectMapper.writeValueAsString(new ServiceWithRestTemplate.ResponseModel("body1")),
+                MediaType.APPLICATION_JSON));
+
+        MvcResult mvcResult = mockMvc.perform(get("/api/test1"))
+                .andExpect(status().isOk()).andReturn();
+
+        String response = mvcResult.getResponse().getContentAsString();
+
+        assertEquals("{\"body\":\"body1\"}", response);
     }
 }
