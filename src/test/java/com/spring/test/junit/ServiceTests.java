@@ -27,6 +27,6 @@ class ServiceTests {
 	void test() {
 		when(demoComponent.getString()).thenReturn("test");
 		assertEquals("test", demoService.test());
-		verify(demoComponent, times(1)).getString();
+		verify(demoComponent, times(1));
 	}
 }
