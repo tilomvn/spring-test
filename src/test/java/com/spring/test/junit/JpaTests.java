@@ -1,5 +1,6 @@
 package com.spring.test.junit;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -30,5 +31,6 @@ class JpaTests {
 	void test() {
 		List<DemoEntity> e = demoRepository.findByName("name");
 		assertTrue(e.size() > 0);
+		assertEquals("name", e.get(0).name);
 	}
 }
