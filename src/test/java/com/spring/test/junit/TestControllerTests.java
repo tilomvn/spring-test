@@ -44,6 +44,17 @@ class TestControllerTests {
 	}
 
 	@Test
+	void test1() throws Exception {
+		var mvcResult = mockMvc.perform(get("/api/test1"))
+				.andExpect(status().isOk()).andReturn();
+
+		var response = objectMapper.readValue(mvcResult.getResponse().getContentAsString(),
+				TestController.ResponseModel.class);
+
+		assertEquals(null, response.body);
+	}
+
+	@Test
 	void testMultipartPutForm() throws Exception {
 		var requestBody = "{\"code\": \"code\"}";
 		var token = "Bearer asldahskjdha.sdakjhdkjahsd";
