@@ -56,16 +56,18 @@ class TestControllerTests {
 
 	@Test
 	void testMultipartPutForm() throws Exception {
-		var requestBody = "{\"code\": \"code\"}";
+		var requestBody = "{\"body\": \"body\"}";
 		var token = "Bearer asldahskjdha.sdakjhdkjahsd";
-		var builder = MockMvcRequestBuilders.multipart("/v1/stores/");
+		var builder = MockMvcRequestBuilders.multipart("/api/v1/stores");
 		builder.with(request -> { request.setMethod(HttpMethod.PUT.name()); return request; });
 
 		var result = mockMvc.perform(builder
-						.file(new MockMultipartFile("logo", null, null,
+						.file(new MockMultipartFile("file", null, null,
 								new ClassPathResource("logo.png").getInputStream().readAllBytes()))
-						.file(new MockMultipartFile("store", null, MediaType.APPLICATION_JSON_VALUE, requestBody.getBytes()))
+						.file(new MockMultipartFile("obj", null, MediaType.APPLICATION_JSON_VALUE, requestBody.getBytes()))
 						.header(HttpHeaders.AUTHORIZATION, token))
 				.andExpect(status().isOk()).andReturn();
+		var response = result.getResponse().getContentAsString();
+		System.out.println(response);
 	}
 }
