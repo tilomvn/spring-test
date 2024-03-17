@@ -22,7 +22,7 @@ class ServiceWithRestTemplate {
 	}
 	
 	String test() {
-		ResponseEntity<ResponseModel> response = restTemplate.getForEntity("http://example.com/", ResponseModel.class);
+		ResponseEntity<ResponseModel> response = restTemplate.getForEntity("http://example.com1/", ResponseModel.class);
 		if (response != null) {
 			return response.getBody().name;	
 		}

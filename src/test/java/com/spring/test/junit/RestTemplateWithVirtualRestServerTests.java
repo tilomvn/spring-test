@@ -28,7 +28,7 @@ class RestTemplateWithVirtualRestServerTests {
 	
 	@Test
 	void test() throws Exception {
-		virtualServer.expect(requestTo("http://example.com/"))
+		virtualServer.expect(requestTo("http://example.com1/"))
 					.andRespond(withSuccess(objectMapper.writeValueAsString(new ServiceWithRestTemplate.ResponseModel("name")), 
 							MediaType.APPLICATION_JSON));
 		
