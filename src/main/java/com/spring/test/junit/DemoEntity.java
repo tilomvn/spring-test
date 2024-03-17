@@ -16,8 +16,8 @@ class DemoEntity {
 	@Column(length = 50)
 	String name;
 	
-	DemoEntity() {}
-	DemoEntity(String name) { this.name = name;	}
+	public DemoEntity() {}
+	public DemoEntity(String name) { this.name = name;	}
 
 	@PrePersist
 	void prePersist() {

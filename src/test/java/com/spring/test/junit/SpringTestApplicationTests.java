@@ -43,7 +43,7 @@ class SpringTestApplicationTests {
 
     @Test
     void test1() throws Exception {
-        String url =  "http://example.com/";
+        String url =  "http://example.com1/";
         virtualServer.expect(requestTo(url)).andRespond(withSuccess(
                 objectMapper.writeValueAsString(new ServiceWithRestTemplate.ResponseModel("body1")),
                 MediaType.APPLICATION_JSON));
